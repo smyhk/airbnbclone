@@ -1,9 +1,9 @@
 import { LuUser } from 'react-icons/lu';
 
-import { fetchProfileImageAction } from '@/utils/actions';
+import { fetchProfileImage } from '@/utils/actions';
 
 export default async function UserIcon() {
-  const profileImage = await fetchProfileImageAction();
+  const profileImage = await fetchProfileImage();
   if (profileImage) {
     return (
       <img
