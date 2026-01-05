@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { auth, clerkClient, currentUser } from '@clerk/nextjs/server';
 
-import { profileSchema } from './schemas';
+import { profileSchema, validateWithZodSchema } from './schemas';
 
 // Helper function to validate current user
 const getAuthUser = async () => {
@@ -19,8 +19,6 @@ const getAuthUser = async () => {
 };
 
 const renderError = (error: unknown): { message: string } => {
-  console.log(error);
-
   return {
     message: error instanceof Error ? error.message : 'An error has occurred',
   };
@@ -35,7 +33,7 @@ export const createProfileAction = async (
     if (!user) throw new Error('Please login to create a profile');
 
     const rawData = Object.fromEntries(formData);
-    const validatedFields = profileSchema.parse(rawData);
+    const validatedFields = validateWithZodSchema(profileSchema, rawData);
 
     await prisma.profile.create({
       data: {
@@ -95,7 +93,7 @@ export const updateProfileAction = async (
 
   try {
     const rawData = Object.fromEntries(formData);
-    const validatedFields = profileSchema.parse(rawData);
+    const validatedFields = validateWithZodSchema(profileSchema, rawData);
 
     await prisma.profile.update({
       where: {
