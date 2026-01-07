@@ -4,16 +4,18 @@ import { useFormStatus } from 'react-dom';
 import { Spinner } from '../ui/spinner';
 import { Button } from '@/components/ui/button';
 
+type btnSize = 'default' | 'lg' | 'sm';
+
 type SubmitButtonProps = {
   className?: string;
   text?: string;
+  size?: btnSize;
 };
 
-import React from 'react';
-
-export default function SubmitButton({
+export function SubmitButton({
   className = '',
   text = 'submit',
+  size = 'lg',
 }: SubmitButtonProps) {
   const { pending } = useFormStatus();
   return (
@@ -21,7 +23,7 @@ export default function SubmitButton({
       type="submit"
       disabled={pending}
       className={`capitalize ${className}`}
-      size="lg"
+      size={size}
     >
       {pending ? (
         <>
