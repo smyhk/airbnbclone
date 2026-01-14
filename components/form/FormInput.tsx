@@ -13,7 +13,7 @@ export default function FormInput(props: FormInputProps) {
   const { name, type, label, defaultValue, placeholder } = props;
   return (
     <div className="mb-2">
-      <Label htmlFor={name} className="capitalizr">
+      <Label htmlFor={name} className="capitalize">
         {label || name}
       </Label>
       <Input

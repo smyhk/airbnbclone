@@ -18,13 +18,13 @@ export default function CreatePropertyPage() {
             <FormInput
               name="name"
               type="text"
-              label="Name (20 limit)"
+              label="name (20 limit)"
               defaultValue="Cabin in Washington"
             />
             <FormInput
               name="tagline"
               type="text"
-              label="Tagline (30 limit)"
+              label="tagline (30 limit)"
               defaultValue="Dream Getaway Awaits You Here"
             />
             {/* price */}

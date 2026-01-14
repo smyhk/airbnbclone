@@ -11,7 +11,7 @@ export default function PriceInput({ defaultValue }: PriceInputProps) {
   return (
     <div className="mb-2">
       <Label htmlFor={name} className="capitalize">
-        Price ($)
+        price ($)
       </Label>
       <Input
         id={name}
