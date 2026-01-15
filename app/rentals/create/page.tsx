@@ -5,6 +5,8 @@ import { SubmitButton } from '@/components/form/Buttons';
 import PriceInput from '@/components/form/PriceInput';
 import CategoriesInput from '@/components/form/CategoriesInput';
 import TextAreaInput from '@/components/form/TextAreaInput';
+import CountriesInput from '@/components/form/CountriesInput';
+import ImageInput from '@/components/form/ImageInput';
 
 export default function CreatePropertyPage() {
   return (
@@ -38,6 +40,10 @@ export default function CreatePropertyPage() {
             name="description"
             labelText="description (10 - 1000 words)"
           />
+          <div className="grid md:grid-cols-2 gap-8 mt-4">
+            <CountriesInput />
+            <ImageInput />
+          </div>
           <SubmitButton text="create rental" className="mt-12" />
         </FormContainer>
       </div>
